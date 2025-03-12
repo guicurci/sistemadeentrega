@@ -1,7 +1,7 @@
 Criando um Banco de Dados Simples com mongoDB
-```
+
 use hello_world_db
-```
+
 Criando uma Coleção e Inserindo Dados
 
 db.mensagens.insertOne({ "mensagem": "Hello, World!" })

@@ -1,22 +1,23 @@
 Criando um Banco de Dados Simples com mongoDB
-
+```
 use hello_world_db
-
+```
 Criando uma Coleção e Inserindo Dados
-
+```
 db.mensagens.insertOne({ "mensagem": "Hello, World!" })
-
+```
 Consultando os Dados
-
+```
 db.mensagens.find().pretty()
-
+```
 Deletando um Registro
-
+```
 db.mensagens.deleteOne({ "mensagem": "Hello, MongoDB!" })
+```
 Controle de acesso
 
 Criando autenticação (login)
-
+```
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
@@ -44,9 +45,9 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign({ username, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
     res.json({ token });
 });
-
+```
 Criando Middleware para proteger rotas
-
+```
 const authenticateJWT = (req, res, next) => {
     const token = req.header("Authorization")?.split(" ")[1];
     if (!token) return res.status(403).json({ message: "Acesso negado!" });
@@ -57,13 +58,9 @@ const authenticateJWT = (req, res, next) => {
         next();
     });
 };
-
-
-
-
-
+```
 Criando rotas protegidas por permissões
-
+```
 app.get("/admin", authenticateJWT, (req, res) => {
     if (req.user.role !== "admin") return res.status(403).json({ message: "Acesso restrito!" });
     res.json({ message: "Bem-vindo, administrador!" });

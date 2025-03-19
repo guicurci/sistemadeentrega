@@ -1,6 +1,7 @@
 Este arquivo define o esquema do usuário no banco de dados MongoDB utilizando o Mongoose. Ele estrutura como os dados dos usuários serão armazenados e garante regras como obrigatoriedade e unicidade de alguns campos.
-
-
+```
+pasta: models/User.js
+```
 Importa o mongoose para interagir com o banco de dados MongoDB
 ```
 const mongoose = require("mongoose");
